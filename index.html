@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mushkan Profile</title>
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1b2735);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+  @keyframes gradientBG {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+  }
+
+  /* Glass Card */
+  .card {
+    position: relative;
+    width: 300px;
+    max-width: 95%;
+    padding: 30px 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0,255,255,0.2);
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0,255,255,0.2);
+  }
+
+  /* Floating particles */
+  .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(0,255,255,0.5);
+    border-radius: 50%;
+    animation: floatParticle linear infinite;
+  }
+  @keyframes floatParticle {
+    0% { transform: translateY(0px); opacity: 0.3; }
+    50% { transform: translateY(-20px); opacity: 1; }
+    100% { transform: translateY(0px); opacity: 0.3; }
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #00acee;
+    box-shadow: 0 0 20px #00acee;
+    margin-bottom: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bio { font-size: 14px; color: #ddd; margin-bottom: 8px; font-style: italic; position: relative; z-index:1; }
+
+  .name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00c6ff, #0072ff, #00ffea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 0 0 20px 0;
+    position: relative;
+    z-index:1;
+  }
+
+  .verified { width: 20px; height: 20px; filter: drop-shadow(0 0 6px #00aaff); }
+
+  .options { display: grid; gap: 15px; margin-bottom: 20px; position: relative; z-index:1; }
+
+  /* Neon Buttons */
+  .option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 0 10px rgba(0,255,255,0.5),0 0 20px rgba(0,255,255,0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .option:hover { box-shadow:0 0 15px rgba(0,255,255,0.7),0 0 25px rgba(0,255,255,0.5); }
+  .option:active { box-shadow:0 0 5px rgba(0,255,255,0.2),0 0 10px rgba(0,255,255,0.1); transform: scale(0.97); }
+
+  .option span { font-size:1.1rem; color:#fff; font-weight:500; display:flex; align-items:center; gap:8px; position: relative; z-index:1; }
+
+  .green-dot { width:14px;height:14px;border-radius:50%;background:#00ff6a;box-shadow:0 0 10px #00ff6a;animation: pulse 1.2s infinite; }
+  @keyframes pulse {0%{transform:scale(1);opacity:0.7;}50%{transform:scale(1.4);opacity:1;}100%{transform:scale(1);opacity:0.7;}}
+
+  .media-gallery { display:flex; gap:12px; overflow:hidden; padding:10px 0; position:relative; z-index:1; }
+  .media-gallery img { width:140px;height:200px;border-radius:15px;object-fit:cover;transition:all 0.3s ease;cursor:pointer;box-shadow:0 0 12px rgba(0,255,255,0.3); flex-shrink:0;}
+  .media-gallery img:hover { transform: scale(1.05); box-shadow:0 0 25px #00ffea; }
+
+  /* Footer fixed bottom-right */
+  .footer {
+    font-size: 13px;
+    color: #aaa;
+    position: fixed;
+    bottom: 10px;
+    right: 100px;
+    z-index: 10;
+  }
+
+  @media(max-width:400px){ .media-gallery img{width:100px;height:160px;} .name{font-size:1.5rem;} .option span{font-size:1rem;} }
+
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+  <img src="https://instaprofilebio.com/wp-content/uploads/2024/08/alone-girls-dp-for-instagram_75.webp" alt="Profile" class="profile-pic">
+  <div class="bio">✨ Official Profile • Connect below ✨</div>
+  <h2 class="name">Mushkan <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" alt="Verified" class="verified"></h2>
+
+  <div class="options">
+    <div class="option" onclick="window.open('https://t.me/+FFoYplfUOldlZGM1','_blank')"><span>Telegram Channel</span></div>
+    <div class="option"><span>Video Call Service <span class="green-dot"></span></span></div>
+  </div>
+
+  <div class="media-gallery" id="gallery">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDIe60Y9keMm4H6Vnx0oqZ4JBHdb7FftQY4nLGdQ16Zw&s=10" alt="Media 1">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtM9oi5WZH6R96D4qDqfUWc81d7WDBluixsudDXg4Hj3wSH_k0wjBKXXTw&s=10" alt="Media 2">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoHn2nrx-Go5yKxInK0fkooJ_SJPkl6YwSSyEcxdgU9Y0LbsRks6BZw3-2&s=10" alt="Media 3">
+    <img src="https://buynow.plus/wp-content/uploads/2023/12/Sasura-Ep1.jpg" alt="Media 4">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8MH7zF8yyJd5YLGz88-jWQn4PEjulOEhsAIsyBGBl58_7d-zgZ5a2o2M&s=10" alt="Media 5">
+    <img src="https://ixiporn.info/wp-content/uploads/2024/05/Kaam.Dand_.6-600x338.jpg" alt="Media 6">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtXbwoBHlA8wmuwSxsSW75VllY-qcWOaPEIea0mkriPHEcA3avawi6mpQ&s=10" alt="Media 7">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI9G6Mxi_V-q8I86iW00I1amb7SkT8hNu_R5h1h_iT4XVZZunDZQD00kBL&s=10" alt="Media 8">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQULW9KBNzL5GiyuEOrqNiTFC04xnLmTFHGYsBbPj7JtqqP1K_Sv520KXM&s=10" alt="Media 9">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQULW9KBNzL5GiyuEOrqNiTFC04xnLmTFHGYsBbPj7JtqqP1K_Sv520KXM&s=10" alt="Media 10">
+  </div>
+</div>
+
+<div class="footer">© All Rights Reserved 2025</div>
+
+<script>
+  // Infinite auto-scroll gallery
+  const gallery = document.getElementById('gallery');
+  let scrollPos = 0;
+  let speed = 0.5;
+  function autoScroll() {
+    scrollPos += speed;
+    if(scrollPos >= gallery.scrollWidth / 2) scrollPos = 0;
+    gallery.scrollTo({ left: scrollPos });
+    requestAnimationFrame(autoScroll);
+  }
+  autoScroll();
+
+  // Floating particles
+  const card = document.getElementById('card');
+  for(let i=0;i<20;i++){
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    p.style.top = Math.random()*100 + '%';
+    p.style.left = Math.random()*100 + '%';
+    p.style.width = `${2 + Math.random()*3}px`;
+    p.style.height = p.style.width;
+    p.style.animationDuration = `${5 + Math.random()*5}s`;
+    card.appendChild(p);
+  }
+</script>
+
+</body>
+</html>
